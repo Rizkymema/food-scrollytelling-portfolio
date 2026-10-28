@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* --bg harus sama persis dengan warna tepi frame video agar canvas menyatu tanpa garis. */
+:root {
+  --bg: #000000;
+  --fg: #f5ece0;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-ivory: var(--fg);
+  --color-amber: #f0a85c;
+  --color-muted: #8c8276;
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-syne);
+
+  --animate-scroll-line: scroll-line 1.8s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  --animate-spin-slow: spin 9s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes scroll-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+}
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #f0a85c;
+  color: #000;
+}
+
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--fg);
+}
+
+.text-shadow-soft {
+  text-shadow: 0 10px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Pinggiran canvas memudar ke warna background. */
+.vignette {
+  background: radial-gradient(ellipse at center, transparent 45%, var(--bg) 100%);
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Lembaran konten yang naik menutupi canvas di akhir scroll sequence. */
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: -30vh;
+  height: 30vh;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

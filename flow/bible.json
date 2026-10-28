@@ -1,0 +1,40 @@
+{
+  "proyek": "web1_food",
+  "versi": 1,
+  "catatan": "Food photography Michelin-style untuk website scrollytelling. Sumber prompt: STEP-1 01-makanan-food-image.md dan STEP-2 01-makanan-food-video.md. Subject utama: Wagyu steak.",
+  "model": "Nano Banana Pro",
+  "aspect_ratio": "16:9",
+  "gaya": {
+    "nama": "Michelin Editorial Warm",
+    "blok": "Cinematic high-end food photography, Michelin-star editorial plating aesthetic, shot like a food magazine cover. Rich warm color grading with deep greens, golden browns and warm reds. Hyper-realistic food textures: glistening sauces, crisp seared edges, soft steam wisps. Ultra-sharp focus on the hero dish. 8K resolution, premium aesthetic. No writing or lettering anywhere in the picture.",
+    "kamera_default": "overhead top-down, perfectly centered flat-lay",
+    "cahaya_default": "soft warm directional light from the upper-left at 45 degrees, golden-hour tone, gentle shadow falloff into pure black"
+  },
+  "subject": "a Wagyu steak seared medium-rare, sliced to reveal a rosy pink center, with a dark caramelized crust and a melting disc of herb butter on top",
+  "set": {
+    "panggung_hitam": {
+      "deskripsi": "handcrafted matte charcoal-grey ceramic plate on a black matte ceramic surface that fades seamlessly into a pure black background at every edge, no horizon line",
+      "asset": "web1_food-scene-11"
+    }
+  },
+  "penutup": "No writing or lettering anywhere in the picture.",
+  "video": {
+    "model_kunci": "Veo 3.1 - Fast",
+    "model_hemat": "Veo 3.1 - Lite",
+    "blok": "Same plate, same black background and same warm side light as the first frame; the background stays pure black. Camera locked-off overhead, static. The scene ends on a hold. No text, no dialogue, no voice."
+  },
+  "aset": {
+    "scene-03": "Prompt Image 1 (overhead, walnut) -> public/images/about-wagyu-table.jpg",
+    "scene-04": "Prompt Image 2 (45 derajat, wagyu) -> public/images/work-wagyu.jpg",
+    "scene-05": "Prompt Image 3 (ingredients explosion) -> public/images/services-explosion.jpg",
+    "scene-06": "Prompt Image 2, ramen -> public/images/work-ramen.jpg",
+    "scene-07": "Prompt Image 2, sushi -> public/images/work-sushi.jpg",
+    "scene-08": "Prompt Image 2, chocolate lava cake -> public/images/work-lava-cake.jpg",
+    "scene-09": "Prompt Image 2, nasi goreng -> public/images/work-nasi-goreng.jpg",
+    "scene-10": "Frame awal Prompt Video 2 (bahan mentah di marmer) -> public/images/process-raw.jpg",
+    "scene-11": "Frame awal Prompt Video 1 (piring kosong di panggung hitam) -> public/images/seq-start.jpg",
+    "scene-12": "Frame akhir Prompt Video 1 (piring wagyu jadi) -> public/images/seq-end.jpg",
+    "plating.mp4": "Flow 'Chef plating Wagyu steak dinner', Veo 3.1 Fast, 20 kredit. Prompt Video 1 Plating Reveal (scene-11 -> scene-12) -> public/sequence/frame_XXXX.jpg",
+    "timelapse.mp4": "Flow 'Cooking Wagyu steak dinner', Veo 3.1 Lite, 10 kredit. Prompt Video 2 Cinematic Timelapse (dari scene-10) -> public/video/process-timelapse.mp4"
+  }
+}
