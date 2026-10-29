@@ -10,8 +10,15 @@ import { Cursor } from "@/components/Cursor";
 const syne = Syne({ variable: "--font-syne", subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 
+// Di Vercel domain produksi tersedia otomatis, jadi gambar OG tidak mengarah ke localhost.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: `${site.name} — ${site.roleLong}`,
   description: site.description,
   openGraph: {
